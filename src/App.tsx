@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Login from './pages/Login'; 
+import { Route, Routes } from 'react-router-dom';
+import { PrivateRoute } from './components/PrivateRoute';
+import { NotFound } from './pages/NotFound';
+import Users from './pages/Users';
+import { ToastContainer, toast } from 'react-toastify';
 
-function App() {
+import 'react-toastify/dist/ReactToastify.css';
+import Register from './pages/Register';
+const App=()=> {
+   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <ToastContainer position='bottom-right' hideProgressBar />
+      <Routes>
+      <Route path="/" element={<Login />} />  
+      <Route path="/register" element={<Register />} />  
+      <Route path="*" element={<NotFound />} />
+      <Route
+          path="users"
+          element={<PrivateRoute  component={Users} />}
+        />
+      </Routes>
     </div>
   );
 }
