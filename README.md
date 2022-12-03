@@ -8,10 +8,12 @@ This project with [Create React App](https://github.com/facebook/create-react-ap
 ├────── **app** : hooks and Redux store<br>
 ├────── **assets** : images<br>
 ├────── **components** : components<br>
-├────── **agent** : api services<br>
+├────── **api/agent** : api services<br>
 ├────── **containers** : page elements<br>
 ├────── **features** : Redux action,reducer   <br>
 └────── **models** : typescript's model definitions<br>
+└────── **pages** : pages<br>
+└────── **utils** : helper functions<br>
 
 ## Available Scripts
 
