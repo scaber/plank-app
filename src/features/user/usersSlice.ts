@@ -1,11 +1,9 @@
 import {   createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState  } from '../../app/store';
  
+//added but unused
 export interface FiltersType { 
-  _order?: "asc" | "desc";
-//   manufacturer?: string[];
-//   itemType?: string;
-//   tags_like?: string[];
+  _order?: "asc" | "desc"; 
     firstName?:string;
     lastName?:string; 
     role?:string;

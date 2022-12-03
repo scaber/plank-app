@@ -13,10 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useAppDispatch } from '../app/hooks';
-import agent from '../api/agent';
  import { useState } from 'react';
- import { updateFilters, deleteFilter } from '../features/user/usersSlice';
-import { setToken } from '../utils/helperFunctions';
 import { login } from '../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
