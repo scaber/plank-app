@@ -40,11 +40,12 @@ const Users = {
     axios.post(`/auth/register`,  {userName,firstName,lastName,password}),
   getCurrentUser:(username:string):Promise<any> =>  
     axios.get(`/getUser?userName=${username}`)  .then(responseBody), 
-  list: () =>
+  list: (searchText ='' ) =>
     axios
-       .get<any>(`/users`)
+       .get<any>(`/users?searchText=${searchText}`)
       .then(responseBody),
- };  
+ }; 
+
 export default {
     Users  
 };

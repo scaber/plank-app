@@ -10,6 +10,7 @@ import { getFilters } from '../features/user/usersSlice';
 import agent from '../api/agent';
 import { useEffect, useState } from 'react';
 import  DateColumn   from '../components/DateColumn';
+import { TextField } from '@mui/material';
   
  const  UserList=() =>{
 
@@ -27,9 +28,26 @@ import  DateColumn   from '../components/DateColumn';
       }
     );  
 }, []) 
+
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+  setUsers([]);
+  agent.Users.list(event.target.value).then( 
+    (res: any ) => { 
+       if(res.length>0  ){
+        setUsers(res); 
+      }  
+      else{
+        setUsers([]);
+
+      }
+    }
+  );  
+};
   return (
     <React.Fragment>
-      
+        
+     <TextField fullWidth label="fullWidth" id="fullWidth"  onChange={handleChange}/>
+     
       <Title>Users</Title>
        <Table size="small">
         <TableHead>
@@ -43,7 +61,7 @@ import  DateColumn   from '../components/DateColumn';
           </TableRow>
         </TableHead>
         <TableBody>
-          {users && users.map((row) =>  { 
+          {  users.map((row) =>  { 
             return (
               <TableRow key={row.id}>
                 <TableCell>{row.userName}</TableCell>
